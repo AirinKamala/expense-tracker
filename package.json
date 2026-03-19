@@ -19,8 +19,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.4",
     "prettier": "3.8.1",
-    "vite": "beta",
-    "vite-plugin-pwa": "^0.19.8",
+    "vite": "^8.0.1",
+    "vite-plugin-pwa": "^1.2.0",
     "vite-plugin-vue-devtools": "^8.0.6"
   },
   "engines": {
