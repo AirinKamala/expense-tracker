@@ -25,8 +25,8 @@ const categories = ref(JSON.parse(localStorage.getItem('myCategories')) || [{nam
   const isConfirmOpen = ref(false)
   const isSuccess = ref(false)
   const isDelete = ref(false)
+  
   //untuk var random
-
   const budget = ref(JSON.parse(localStorage.getItem('capitalMoney')) || 0)
   const judul = ref('')
   const jumlah = ref(0)
@@ -53,7 +53,7 @@ const categories = ref(JSON.parse(localStorage.getItem('myCategories')) || [{nam
   })
 
 // ======================================================================================================================================
-// function start her
+// function start here
   function addingCategory(inputCategoryName) {
     if(!categories.value) return categories.value =[{name:'Makanan', bg: '#fecaca', text: '#991b1b'}]
     const colorIndex = categories.value.length % colors.length
@@ -101,7 +101,6 @@ const categories = ref(JSON.parse(localStorage.getItem('myCategories')) || [{nam
   function deleteData() {
     budget.value = 0
     transactions.value = []
-    alert('Data dihapus')
     localStorage.clear()
     isDelete.value = false
     window.location.reload()

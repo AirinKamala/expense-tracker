@@ -1,6 +1,4 @@
 <template>
-  <!-- ringkasan -->
-  <!-- <div v-if="stores.isConfirmOpen"> -->
   <div
     v-if="stores.isConfirmOpen"
     class="fixed w-full md:w-md md:-translate-x-1/2 md:left-1/2 md:top-4 z-30 p-8 rounded-lg bg-white drop-shadow-2xl"
@@ -99,8 +97,6 @@
       </button>
     </div>
   </div>
-
-  <!-- </div> -->
 </template>
 <style></style>
 <script setup>

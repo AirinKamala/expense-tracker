@@ -19,7 +19,7 @@
 
         <div>
           <h2 class="font-bold">{{ splitingText(expense.title) }}</h2>
-          <p class="text-xs text-slate-700/60">{{ expense.category }} • {{ expense.time }}</p>
+          <p class="text-xs text-slate-700/60">{{ expense.category }} • {{ expense.time }} • {{ getTime(expense.id.substring(8,14)) }}</p>
         </div>
       </div>
       <div id="amountKet">
@@ -33,111 +33,21 @@
   <h2 v-show="stores.transactions.length === 0" class="text-center font-black text-2xl">
     You don't have any expense
   </h2>
-<!-- 
-  <h2 v-show="stores.renderListShow.length === 0" class="text-center font-black text-2xl">
-    You don't have any expense on this category
-  </h2> -->
 </template>
 <script setup>
 import { ref } from 'vue'
 import { useTransactionStore } from '@/stores/transactionStore'
 
 const stores = useTransactionStore()
-// let expenseList = ref([
-//     {
-//         id:1,
-//         title: 'Roti',
-//         amount: 2000,
-//         category: 'Makan',
-//         time: '2026-03-03'
-//     },
-//     {
-//         id:2,
-//         title: 'Bensin',
-//         amount: 20000,
-//         category: 'Transport',
-//         time: '2026-03-03'
-//     },{
-//        id:3,
-//         title: 'Bensin',
-//         amount: 20000,
-//         category: 'Transport',
-//         time: '2026-03-03'
-//     },{
-//        id:4,
-//         title: 'Bensin',
-//         amount: 20000,
-//         category: 'Transport',
-//         time: '2026-03-03'
-//     },{
-//         id:1,
-//         title: 'Roti',
-//         amount: 2000,
-//         category: 'Makan',
-//         time: '2026-03-03'
-//     },
-//     {
-//         id:2,
-//         title: 'Bensin',
-//         amount: 20000,
-//         category: 'Transport',
-//         time: '2026-03-03'
-//     },{
-//        id:3,
-//         title: 'Bensin',
-//         amount: 20000,
-//         category: 'Transport',
-//         time: '2026-03-03'
-//     },{
-//         id:1,
-//         title: 'Roti',
-//         amount: 2000,
-//         category: 'Makan',
-//         time: '2026-03-03'
-//     },
-//     {
-//         id:2,
-//         title: 'Bensin',
-//         amount: 20000,
-//         category: 'Transport',
-//         time: '2026-03-03'
-//     },{
-//        id:3,
-//         title: 'Bensin',
-//         amount: 20000,
-//         category: 'Transport',
-//         time: '2026-03-03'
-//     },{
-//        id:4,
-//         title: 'Bensin',
-//         amount: 20000,
-//         category: 'Transport',
-//         time: '2026-03-03'
-//     },{
-//         id:1,
-//         title: 'Roti',
-//         amount: 2000,
-//         category: 'Makan',
-//         time: '2026-03-03'
-//     },
-//     {
-//         id:2,
-//         title: 'Bensin',
-//         amount: 20000,
-//         category: 'Transport',
-//         time: '2026-03-03'
-//     },{
-//        id:3,
-//         title: 'Bensin',
-//         amount: 20000,
-//         category: 'Transport',
-//         time: '2026-03-03'
-//     },
-// ]);
-
 const generateColor = (category) => {
   const colorCategory = stores.categories.find((e) => e.name === category)
   return colorCategory ? {bg:colorCategory.bg, text: colorCategory.text} : {bg:'#dbeafe', text:'#1e40af'}
+}
+
+const getTime = (time) => {
+  const timed = String(time)
+  const final = timed.slice(0,2) + ':' + timed.slice(2,4) + ':' + timed.slice(4,6)
+  return final
 }
 
 function splitingText(text) {

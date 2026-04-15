@@ -7,6 +7,7 @@
       </h1>
       <button class="text-2xl hover:bg-white/20 px-2 rounded-md" @click="()=>{
         if(!showInput) {
+          if(stores.sisaUang) return showInput = false
           val = '-'
           return showInput = true }
           val = '+'
@@ -36,7 +37,7 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 import { useTransactionStore } from '@/stores/transactionStore'
 
 const stores = useTransactionStore()

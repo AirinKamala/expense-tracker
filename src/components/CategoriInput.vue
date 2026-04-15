@@ -41,12 +41,11 @@ const addCategori = () => {
     return (inputCat.value = true)
   }
   if (inputCat.value) {
-    if (category.value.trim() === '') return alert('isi data')
+    if (category.value.trim() === '') return alert('Isi nama kategori terlebih dahulu!')
     
     stores.addingCategory(category.value)
     category.value = ''
     inputCat.value = false
-    alert('Kategori berhasil ditambahkan')
   }
 }
 </script>
